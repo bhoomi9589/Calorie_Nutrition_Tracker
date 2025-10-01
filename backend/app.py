@@ -20,6 +20,12 @@ print(f"Static folder path: {static_folder}")
 print(f"Static folder exists: {os.path.exists(static_folder)}")
 if os.path.exists(static_folder):
     print(f"Files in static folder: {os.listdir(static_folder)}")
+    # Check if static/js directory exists
+    js_folder = os.path.join(static_folder, 'static', 'js')
+    if os.path.exists(js_folder):
+        print(f"JS files in static/js: {os.listdir(js_folder)}")
+    else:
+        print("static/js directory does not exist!")
 else:
     # Try alternative path for production deployment
     alternative_static = os.path.join(os.getcwd(), 'frontend', 'build')
