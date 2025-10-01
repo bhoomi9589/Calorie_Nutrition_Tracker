@@ -22,16 +22,6 @@ else:
     print(f"Trying alternative path: {alternative_static}")
     if os.path.exists(alternative_static):
         app.static_folder = alternative_static
-print(f"Static folder path: {static_folder}")
-print(f"Static folder exists: {os.path.exists(static_folder)}")
-if os.path.exists(static_folder):
-    print(f"Files in static folder: {os.listdir(static_folder)}")
-else:
-    # Try alternative path for production deployment
-    alternative_static = os.path.join(os.getcwd(), 'frontend', 'build')
-    print(f"Trying alternative path: {alternative_static}")
-    if os.path.exists(alternative_static):
-        app.static_folder = alternative_static
         print(f"Using alternative static folder: {alternative_static}")
     else:
         print("No static folder found - frontend may not be available")
@@ -170,6 +160,17 @@ def test_api():
         'static_folder_exists': os.path.exists(app.static_folder),
         'build_files': os.listdir(app.static_folder) if os.path.exists(app.static_folder) else []
     })
+
+# Explicit static file serving routes
+@app.route('/static/<path:filename>')
+def serve_static_files(filename):
+    try:
+        static_path = os.path.join(app.static_folder, 'static')
+        print(f"Serving static file: {filename} from {static_path}")
+        return send_from_directory(static_path, filename)
+    except Exception as e:
+        print(f"Error serving static file: {str(e)}")
+        return jsonify({'error': f'Static file error: {str(e)}'}), 404
 
 # Serve React App for production deployment
 @app.route('/', defaults={'path': ''})
