@@ -24,7 +24,7 @@ __pycache__/
 .env.production.local
 
 # Production build
-/frontend/build
+# /frontend/build (commented out for deployment)
 
 # IDE
 .vscode/
