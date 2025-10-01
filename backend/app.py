@@ -8,6 +8,10 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# Get Spoonacular API key from environment variable with fallback
+SPOONACULAR_API_KEY = os.getenv('SPOONACULAR_API_KEY') or '14ed33f55842459298f8a6548333a21c'
+SPOONACULAR_BASE_URL = 'https://api.spoonacular.com'
+
 # For production deployment, serve React static files
 static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'frontend', 'build')
 app = Flask(__name__, static_folder=static_folder, static_url_path='')
@@ -37,10 +41,6 @@ else:
             "allow_headers": ["Content-Type"]
         }
     })
-
-# Get Spoonacular API key from environment variable
-SPOONACULAR_API_KEY = os.getenv('SPOONACULAR_API_KEY')
-SPOONACULAR_BASE_URL = 'https://api.spoonacular.com'
 
 # Temporary storage for food logs (replace with database in production)
 daily_food_log = []
