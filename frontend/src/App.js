@@ -14,7 +14,7 @@ function App() {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/search?query=${searchTerm}`);
+      const response = await axios.get(`/api/search?query=${searchTerm}`);
       setSearchResults(response.data.searchResults || []);
     } catch (error) {
       console.error('Error searching for food:', error);
@@ -23,7 +23,7 @@ function App() {
 
   const handleSelectFood = async (food) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/nutrition?id=${food.id}`);
+      const response = await axios.get(`/api/nutrition?id=${food.id}`);
       setSelectedFood({ ...food, nutrition: response.data.nutrition });
     } catch (error) {
       console.error('Error getting nutrition info:', error);
@@ -32,7 +32,7 @@ function App() {
 
   const handleLogFood = async (food) => {
     try {
-      await axios.post('http://localhost:5000/api/log-food', food);
+      await axios.post('/api/log-food', food);
       setDailyLog([...dailyLog, food]);
     } catch (error) {
       console.error('Error logging food:', error);
