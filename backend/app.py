@@ -16,6 +16,25 @@ print(f"Static folder path: {static_folder}")
 print(f"Static folder exists: {os.path.exists(static_folder)}")
 if os.path.exists(static_folder):
     print(f"Files in static folder: {os.listdir(static_folder)}")
+else:
+    # Try alternative path for production deployment
+    alternative_static = os.path.join(os.getcwd(), 'frontend', 'build')
+    print(f"Trying alternative path: {alternative_static}")
+    if os.path.exists(alternative_static):
+        app.static_folder = alternative_static
+print(f"Static folder path: {static_folder}")
+print(f"Static folder exists: {os.path.exists(static_folder)}")
+if os.path.exists(static_folder):
+    print(f"Files in static folder: {os.listdir(static_folder)}")
+else:
+    # Try alternative path for production deployment
+    alternative_static = os.path.join(os.getcwd(), 'frontend', 'build')
+    print(f"Trying alternative path: {alternative_static}")
+    if os.path.exists(alternative_static):
+        app.static_folder = alternative_static
+        print(f"Using alternative static folder: {alternative_static}")
+    else:
+        print("No static folder found - frontend may not be available")
 
 # Configure CORS for production
 if os.environ.get('FLASK_ENV') == 'production':
