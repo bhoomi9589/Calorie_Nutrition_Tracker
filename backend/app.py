@@ -12,6 +12,11 @@ load_dotenv()
 static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'frontend', 'build')
 app = Flask(__name__, static_folder=static_folder, static_url_path='')
 
+print(f"Static folder path: {static_folder}")
+print(f"Static folder exists: {os.path.exists(static_folder)}")
+if os.path.exists(static_folder):
+    print(f"Files in static folder: {os.listdir(static_folder)}")
+
 # Configure CORS for production
 if os.environ.get('FLASK_ENV') == 'production':
     CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -138,14 +143,34 @@ def log_food():
 def get_daily_log():
     return jsonify(daily_food_log)
 
+@app.route('/api/test')
+def test_api():
+    return jsonify({
+        'message': 'Backend is working!',
+        'static_folder': app.static_folder,
+        'static_folder_exists': os.path.exists(app.static_folder),
+        'build_files': os.listdir(app.static_folder) if os.path.exists(app.static_folder) else []
+    })
+
 # Serve React App for production deployment
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_react_app(path):
-    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+    try:
+        print(f"Requested path: {path}")
+        print(f"Static folder: {app.static_folder}")
+        
+        if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+            print(f"Serving file: {path}")
+            return send_from_directory(app.static_folder, path)
+        else:
+            print("Serving index.html")
+            index_path = os.path.join(app.static_folder, 'index.html')
+            print(f"Index.html exists: {os.path.exists(index_path)}")
+            return send_from_directory(app.static_folder, 'index.html')
+    except Exception as e:
+        print(f"Error serving file: {str(e)}")
+        return jsonify({'error': f'File serving error: {str(e)}'}), 500
 
 if __name__ == '__main__':
     if not SPOONACULAR_API_KEY:
