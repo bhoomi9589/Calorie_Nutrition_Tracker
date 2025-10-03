@@ -107,7 +107,7 @@ INDIAN_FOODS_DB = {
     'samosa': {
         'id': 'indian_samosa_001',
         'title': 'Vegetable Samosa',
-        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1666286332363-5caa95e25b60?w=300&q=80',
         'nutrition': {'calories': 262, 'protein': 4, 'fat': 17, 'carbs': 24}
     },
     'kachori': {
