@@ -51,6 +51,199 @@ else:
 # Temporary storage for food logs (replace with database in production)
 daily_food_log = []
 
+# Indian foods database for fallback when Spoonacular API doesn't have results
+INDIAN_FOODS_DB = {
+    'dosa': {
+        'id': 'indian_dosa_001',
+        'title': 'Plain Dosa',
+        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300',
+        'nutrition': {'calories': 168, 'protein': 4, 'fat': 3, 'carbs': 32}
+    },
+    'masala dosa': {
+        'id': 'indian_masala_dosa_001',
+        'title': 'Masala Dosa',
+        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300',
+        'nutrition': {'calories': 285, 'protein': 6, 'fat': 8, 'carbs': 48}
+    },
+    'idli': {
+        'id': 'indian_idli_001',
+        'title': 'Idli (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300',
+        'nutrition': {'calories': 78, 'protein': 3, 'fat': 1, 'carbs': 16}
+    },
+    'samosa': {
+        'id': 'indian_samosa_001',
+        'title': 'Vegetable Samosa',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300',
+        'nutrition': {'calories': 262, 'protein': 4, 'fat': 17, 'carbs': 24}
+    },
+    'kachori': {
+        'id': 'indian_kachori_001',
+        'title': 'Dal Kachori',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300',
+        'nutrition': {'calories': 186, 'protein': 5, 'fat': 8, 'carbs': 25}
+    },
+    'jalebi': {
+        'id': 'indian_jalebi_001',
+        'title': 'Jalebi',
+        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
+        'nutrition': {'calories': 150, 'protein': 1, 'fat': 4, 'carbs': 28}
+    },
+    'imarti': {
+        'id': 'indian_imarti_001',
+        'title': 'Imarti',
+        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
+        'nutrition': {'calories': 165, 'protein': 2, 'fat': 5, 'carbs': 30}
+    },
+    'lassi': {
+        'id': 'indian_lassi_001',
+        'title': 'Sweet Lassi',
+        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'nutrition': {'calories': 180, 'protein': 6, 'fat': 4, 'carbs': 32}
+    },
+    'puri': {
+        'id': 'indian_puri_001',
+        'title': 'Puri (4 pieces)',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 340, 'protein': 8, 'fat': 14, 'carbs': 48}
+    },
+    'bhel puri': {
+        'id': 'indian_bhel_puri_001',
+        'title': 'Bhel Puri',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300',
+        'nutrition': {'calories': 220, 'protein': 6, 'fat': 8, 'carbs': 32}
+    },
+    'pav bhaji': {
+        'id': 'indian_pav_bhaji_001',
+        'title': 'Pav Bhaji',
+        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300',
+        'nutrition': {'calories': 400, 'protein': 12, 'fat': 18, 'carbs': 52}
+    },
+    'vada pav': {
+        'id': 'indian_vada_pav_001',
+        'title': 'Vada Pav',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300',
+        'nutrition': {'calories': 290, 'protein': 7, 'fat': 12, 'carbs': 40}
+    },
+    'dhokla': {
+        'id': 'indian_dhokla_001',
+        'title': 'Dhokla (4 pieces)',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 160, 'protein': 6, 'fat': 3, 'carbs': 28}
+    },
+    'uttapam': {
+        'id': 'indian_uttapam_001',
+        'title': 'Vegetable Uttapam',
+        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300',
+        'nutrition': {'calories': 195, 'protein': 5, 'fat': 4, 'carbs': 35}
+    },
+    'medu vada': {
+        'id': 'indian_medu_vada_001',
+        'title': 'Medu Vada (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300',
+        'nutrition': {'calories': 185, 'protein': 6, 'fat': 8, 'carbs': 24}
+    },
+    'poha': {
+        'id': 'indian_poha_001',
+        'title': 'Poha',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 180, 'protein': 4, 'fat': 6, 'carbs': 28}
+    },
+    'upma': {
+        'id': 'indian_upma_001',
+        'title': 'Upma',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 200, 'protein': 5, 'fat': 7, 'carbs': 30}
+    },
+    'paratha': {
+        'id': 'indian_paratha_001',
+        'title': 'Aloo Paratha',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 320, 'protein': 8, 'fat': 12, 'carbs': 46}
+    },
+    'chole bhature': {
+        'id': 'indian_chole_bhature_001',
+        'title': 'Chole Bhature',
+        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300',
+        'nutrition': {'calories': 485, 'protein': 16, 'fat': 22, 'carbs': 58}
+    },
+    'rajma': {
+        'id': 'indian_rajma_001',
+        'title': 'Rajma Rice',
+        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300',
+        'nutrition': {'calories': 350, 'protein': 14, 'fat': 8, 'carbs': 58}
+    },
+    'dal rice': {
+        'id': 'indian_dal_rice_001',
+        'title': 'Dal Rice',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 290, 'protein': 12, 'fat': 4, 'carbs': 52}
+    },
+    'biryani': {
+        'id': 'indian_biryani_001',
+        'title': 'Vegetable Biryani',
+        'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300',
+        'nutrition': {'calories': 420, 'protein': 12, 'fat': 15, 'carbs': 62}
+    },
+    'roti': {
+        'id': 'indian_roti_001',
+        'title': 'Roti (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 140, 'protein': 4, 'fat': 1, 'carbs': 28}
+    },
+    'naan': {
+        'id': 'indian_naan_001',
+        'title': 'Plain Naan',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'nutrition': {'calories': 285, 'protein': 8, 'fat': 9, 'carbs': 42}
+    },
+    'gulab jamun': {
+        'id': 'indian_gulab_jamun_001',
+        'title': 'Gulab Jamun (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
+        'nutrition': {'calories': 195, 'protein': 3, 'fat': 8, 'carbs': 30}
+    },
+    'rasgulla': {
+        'id': 'indian_rasgulla_001',
+        'title': 'Rasgulla (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
+        'nutrition': {'calories': 106, 'protein': 4, 'fat': 1, 'carbs': 22}
+    },
+    'kulfi': {
+        'id': 'indian_kulfi_001',
+        'title': 'Kulfi',
+        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'nutrition': {'calories': 155, 'protein': 4, 'fat': 6, 'carbs': 22}
+    },
+    'chai': {
+        'id': 'indian_chai_001',
+        'title': 'Masala Chai',
+        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'nutrition': {'calories': 80, 'protein': 3, 'fat': 3, 'carbs': 12}
+    },
+    'filter coffee': {
+        'id': 'indian_filter_coffee_001',
+        'title': 'South Indian Filter Coffee',
+        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'nutrition': {'calories': 75, 'protein': 3, 'fat': 3, 'carbs': 10}
+    }
+}
+
+def search_indian_foods(query):
+    """Search for Indian foods in our local database"""
+    query_lower = query.lower().strip()
+    results = []
+    
+    for food_key, food_data in INDIAN_FOODS_DB.items():
+        # Check if query matches food name (exact or partial)
+        if query_lower in food_key or food_key in query_lower:
+            results.append(food_data)
+        # Also check if query matches in title
+        elif query_lower in food_data['title'].lower():
+            results.append(food_data)
+    
+    return results[:10]  # Limit to 10 results
+
 @app.route('/api/search')
 def search_food():
     query = request.args.get('query', '')
@@ -61,6 +254,7 @@ def search_food():
         print(f"Searching for query: {query}")
         print(f"Using API key: {SPOONACULAR_API_KEY}")
         
+        # First, search Spoonacular API
         response = requests.get(
             f'{SPOONACULAR_BASE_URL}/recipes/complexSearch',
             params={
@@ -72,28 +266,61 @@ def search_food():
         )
         
         print(f"API Response Status: {response.status_code}")
-        if response.status_code != 200:
-            print(f"API Error Response: {response.text}")
-            return jsonify({'error': 'Error from Spoonacular API', 'details': response.text}), response.status_code
-            
-        data = response.json()
-        print(f"API Response Data: {data}")
+        spoonacular_results = []
         
-        if 'results' not in data:
-            return jsonify({'searchResults': [], 'message': 'No results found'}), 200
+        if response.status_code == 200:
+            data = response.json()
+            print(f"API Response Data: {data}")
             
-        search_results = [{
-            'id': item['id'],
-            'title': item['title'],
-            'image': item['image'],
-            'nutrition': {
-                'calories': item.get('nutrition', {}).get('nutrients', [{'amount': 0}])[0]['amount'],
-                'protein': next((n['amount'] for n in item.get('nutrition', {}).get('nutrients', []) if n['name'] == 'Protein'), 0),
-                'fat': next((n['amount'] for n in item.get('nutrition', {}).get('nutrients', []) if n['name'] == 'Fat'), 0),
-                'carbs': next((n['amount'] for n in item.get('nutrition', {}).get('nutrients', []) if n['name'] == 'Carbohydrates'), 0)
-            }
-        } for item in data['results']]
-        return jsonify({'searchResults': search_results})
+            if 'results' in data and data['results']:
+                spoonacular_results = [{
+                    'id': item['id'],
+                    'title': item['title'],
+                    'image': item['image'],
+                    'nutrition': {
+                        'calories': item.get('nutrition', {}).get('nutrients', [{'amount': 0}])[0]['amount'],
+                        'protein': next((n['amount'] for n in item.get('nutrition', {}).get('nutrients', []) if n['name'] == 'Protein'), 0),
+                        'fat': next((n['amount'] for n in item.get('nutrition', {}).get('nutrients', []) if n['name'] == 'Fat'), 0),
+                        'carbs': next((n['amount'] for n in item.get('nutrition', {}).get('nutrients', []) if n['name'] == 'Carbohydrates'), 0)
+                    }
+                } for item in data['results']]
+        
+        # Search Indian foods database
+        indian_results = search_indian_foods(query)
+        
+        # Combine results - prioritize Spoonacular, then add Indian foods
+        combined_results = spoonacular_results + indian_results
+        
+        # If no results from either source, provide helpful message
+        if not combined_results:
+            return jsonify({
+                'searchResults': [],
+                'message': f'No results found for "{query}". Try searching for popular foods like "dosa", "samosa", "biryani", "pizza", "burger", etc.'
+            }), 200
+        
+        # Limit total results to 10
+        final_results = combined_results[:10]
+        
+        return jsonify({
+            'searchResults': final_results,
+            'message': f'Found {len(final_results)} results for "{query}"'
+        })
+        
+    except Exception as e:
+        print(f"Error in search: {str(e)}")
+        # If API fails, return only Indian foods results
+        indian_results = search_indian_foods(query)
+        if indian_results:
+            return jsonify({
+                'searchResults': indian_results,
+                'message': f'Found {len(indian_results)} local results for "{query}"'
+            })
+        
+        return jsonify({
+            'error': 'Search service temporarily unavailable',
+            'searchResults': [],
+            'message': 'Please try again later or search for Indian foods like "dosa", "samosa", "biryani"'
+        }), 500
     except requests.RequestException as e:
         print(f"Request Exception: {str(e)}")
         return jsonify({
@@ -114,6 +341,18 @@ def get_nutrition():
         return jsonify({'error': 'Food ID is required'}), 400
     
     try:
+        # Check if it's an Indian food from our local database
+        if str(food_id).startswith('indian_'):
+            # Find the food in our database
+            for food_key, food_data in INDIAN_FOODS_DB.items():
+                if food_data['id'] == food_id:
+                    return jsonify({
+                        'nutrition': food_data['nutrition']
+                    })
+            
+            return jsonify({'error': 'Indian food not found in database'}), 404
+        
+        # For Spoonacular API foods
         response = requests.get(
             f'{SPOONACULAR_BASE_URL}/recipes/{food_id}/information',
             params={
