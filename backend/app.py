@@ -87,13 +87,13 @@ INDIAN_FOODS_DB = {
     'medu vada': {
         'id': 'indian_medu_vada_001',
         'title': 'Medu Vada (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1630409351134-b80b322c3d43?w=300&q=80',
         'nutrition': {'calories': 185, 'protein': 6, 'fat': 8, 'carbs': 24}
     },
     'rava idli': {
         'id': 'indian_rava_idli_001',
         'title': 'Rava Idli (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=300&q=80',
         'nutrition': {'calories': 95, 'protein': 3, 'fat': 2, 'carbs': 18}
     },
     'appam': {
@@ -235,12 +235,6 @@ INDIAN_FOODS_DB = {
         'title': 'Vegetable Biryani',
         'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300&q=80',
         'nutrition': {'calories': 420, 'protein': 12, 'fat': 15, 'carbs': 62}
-    },
-    'chicken biryani': {
-        'id': 'indian_chicken_biryani_001',
-        'title': 'Chicken Biryani',
-        'image': 'https://images.unsplash.com/photo-1563379091349-03246963d61a?w=300&q=80',
-        'nutrition': {'calories': 485, 'protein': 22, 'fat': 18, 'carbs': 58}
     },
     'pulao': {
         'id': 'indian_pulao_001',

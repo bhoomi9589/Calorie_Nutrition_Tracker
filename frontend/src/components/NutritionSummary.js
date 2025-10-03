@@ -15,7 +15,7 @@ const NutritionSummary = ({ food, onLogFood }) => {
           <p>Fat: {food.nutrition?.fat || 0}g</p>
         </div>
         <button onClick={() => onLogFood(food)} className="log-button">
-          Log Food
+          Plot Graph
         </button>
       </div>
     </div>
