@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import ResultsList from './components/ResultsList';
@@ -11,25 +11,6 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [selectedFood, setSelectedFood] = useState(null);
   const [dailyLog, setDailyLog] = useState([]);
-
-  // Auto-load demo data to show chart initially
-  useEffect(() => {
-    const demoData = [
-      {
-        title: 'Dosa',
-        nutrition: { calories: 168, protein: 4, carbs: 33, fat: 3 }
-      },
-      {
-        title: 'Idli',
-        nutrition: { calories: 58, protein: 2, carbs: 12, fat: 1 }
-      },
-      {
-        title: 'Poha',
-        nutrition: { calories: 180, protein: 3, carbs: 35, fat: 4 }
-      }
-    ];
-    setDailyLog(demoData);
-  }, []);
 
   const handleSearch = async () => {
     try {

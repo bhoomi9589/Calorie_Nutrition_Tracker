@@ -143,7 +143,7 @@ INDIAN_FOODS_DB = {
     'dahi puri': {
         'id': 'indian_dahi_puri_001',
         'title': 'Dahi Puri',
-        'image': 'https://images.unsplash.com/photo-1674043789100-8bfcad75a8b0?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
         'nutrition': {'calories': 150, 'protein': 4, 'fat': 5, 'carbs': 23}
     },
     'pav bhaji': {
@@ -155,13 +155,13 @@ INDIAN_FOODS_DB = {
     'vada pav': {
         'id': 'indian_vada_pav_001',
         'title': 'Vada Pav',
-        'image': 'https://images.unsplash.com/photo-1673030793570-90a5c13a86e3?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&q=80',
         'nutrition': {'calories': 290, 'protein': 7, 'fat': 12, 'carbs': 40}
     },
     'misal pav': {
         'id': 'indian_misal_pav_001',
         'title': 'Misal Pav',
-        'image': 'https://images.unsplash.com/photo-1673030793580-90a5c13a86e3?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=300&q=80',
         'nutrition': {'calories': 320, 'protein': 12, 'fat': 14, 'carbs': 42}
     },
     
@@ -169,13 +169,13 @@ INDIAN_FOODS_DB = {
     'dhokla': {
         'id': 'indian_dhokla_001',
         'title': 'Dhokla (4 pieces)',
-        'image': 'https://images.unsplash.com/photo-1626132647346-f09797e2bdaa?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
         'nutrition': {'calories': 160, 'protein': 6, 'fat': 3, 'carbs': 28}
     },
     'khandvi': {
         'id': 'indian_khandvi_001',
         'title': 'Khandvi',
-        'image': 'https://images.unsplash.com/photo-1626132647356-f09797e2bdaa?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&q=80',
         'nutrition': {'calories': 140, 'protein': 5, 'fat': 4, 'carbs': 22}
     },
     'thepla': {

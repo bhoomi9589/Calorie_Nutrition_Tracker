@@ -15,7 +15,7 @@ const NutritionSummary = ({ food, onLogFood }) => {
           <p>Fat: {food.nutrition?.fat || 0}g</p>
         </div>
         <div className="auto-added-note">
-          <p>✅ Added to nutrition chart automatically!</p>
+          <p></p>
         </div>
       </div>
     </div>
