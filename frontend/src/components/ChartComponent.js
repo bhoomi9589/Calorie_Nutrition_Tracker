@@ -1,5 +1,6 @@
 import React from 'react';
 import { Doughnut, Bar } from 'react-chartjs-2';
+// Enhanced chart with multi-nutrient visualization
 import {
   Chart as ChartJS,
   CategoryScale,
