@@ -37,15 +37,6 @@ function App() {
     }
   };
 
-  const handleLogFood = async (food) => {
-    try {
-      await axios.post('/api/log-food', food);
-      setDailyLog([...dailyLog, food]);
-    } catch (error) {
-      console.error('Error logging food:', error);
-    }
-  };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -68,7 +59,7 @@ function App() {
               <ResultsList results={searchResults} onSelectFood={handleSelectFood} />
             </div>
             <div className="nutrition-section">
-              <NutritionSummary food={selectedFood} onLogFood={handleLogFood} />
+              <NutritionSummary food={selectedFood} />
             </div>
           </div>
           <div className="right-section">

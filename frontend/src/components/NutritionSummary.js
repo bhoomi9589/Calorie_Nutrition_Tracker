@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NutritionSummary = ({ food, onLogFood }) => {
+const NutritionSummary = ({ food }) => {
   if (!food) return null;
 
   return (
@@ -15,7 +15,7 @@ const NutritionSummary = ({ food, onLogFood }) => {
           <p>Fat: {food.nutrition?.fat || 0}g</p>
         </div>
         <div className="auto-added-note">
-          <p></p>
+          <p>✅ Added to nutrition chart automatically!</p>
         </div>
       </div>
     </div>
