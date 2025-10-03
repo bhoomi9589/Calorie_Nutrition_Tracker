@@ -43,7 +43,14 @@ function App() {
   const handleSelectFood = async (food) => {
     try {
       const response = await axios.get(`/api/nutrition?id=${food.id}`);
-      setSelectedFood({ ...food, nutrition: response.data.nutrition });
+      const foodWithNutrition = { ...food, nutrition: response.data.nutrition };
+      setSelectedFood(foodWithNutrition);
+      
+      // Automatically add to chart when food is selected
+      setDailyLog(prevLog => [...prevLog, foodWithNutrition]);
+      
+      // Also log to backend
+      await axios.post('/api/log-food', foodWithNutrition);
     } catch (error) {
       console.error('Error getting nutrition info:', error);
     }

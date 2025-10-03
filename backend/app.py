@@ -125,19 +125,19 @@ INDIAN_FOODS_DB = {
     'bhel puri': {
         'id': 'indian_bhel_puri_001',
         'title': 'Bhel Puri',
-        'image': 'https://images.unsplash.com/photo-1674043789070-8bfcad75a8b0?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=300&q=80',
         'nutrition': {'calories': 220, 'protein': 6, 'fat': 8, 'carbs': 32}
     },
     'sev puri': {
         'id': 'indian_sev_puri_001',
         'title': 'Sev Puri',
-        'image': 'https://images.unsplash.com/photo-1674043789080-8bfcad75a8b0?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
         'nutrition': {'calories': 180, 'protein': 4, 'fat': 8, 'carbs': 24}
     },
     'pani puri': {
         'id': 'indian_pani_puri_001',
         'title': 'Pani Puri (6 pieces)',
-        'image': 'https://images.unsplash.com/photo-1674043789090-8bfcad75a8b0?w=300&q=80',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&q=80',
         'nutrition': {'calories': 120, 'protein': 3, 'fat': 2, 'carbs': 24}
     },
     'dahi puri': {

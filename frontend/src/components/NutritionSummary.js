@@ -14,9 +14,9 @@ const NutritionSummary = ({ food, onLogFood }) => {
           <p>Carbohydrates: {food.nutrition?.carbs || 0}g</p>
           <p>Fat: {food.nutrition?.fat || 0}g</p>
         </div>
-        <button onClick={() => onLogFood(food)} className="log-button">
-          Plot Graph
-        </button>
+        <div className="auto-added-note">
+          <p>✅ Added to nutrition chart automatically!</p>
+        </div>
       </div>
     </div>
   );
