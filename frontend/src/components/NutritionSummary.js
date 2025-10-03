@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NutritionSummary = ({ food }) => {
+const NutritionSummary = ({ food, onRefreshGraph }) => {
   if (!food) return null;
 
   return (
@@ -17,6 +17,9 @@ const NutritionSummary = ({ food }) => {
         <div className="auto-added-note">
           <p>✅ Added to nutrition chart automatically!</p>
         </div>
+        <button onClick={onRefreshGraph} className="log-button">
+          Plot Graph
+        </button>
       </div>
     </div>
   );
