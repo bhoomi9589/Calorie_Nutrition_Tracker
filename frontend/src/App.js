@@ -37,13 +37,6 @@ function App() {
     }
   };
 
-  const handleRefreshGraph = () => {
-    // Refresh the chart by re-adding the currently selected food
-    if (selectedFood && selectedFood.nutrition) {
-      setDailyLog(prevLog => [...prevLog, selectedFood]);
-    }
-  };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -66,7 +59,7 @@ function App() {
               <ResultsList results={searchResults} onSelectFood={handleSelectFood} />
             </div>
             <div className="nutrition-section">
-              <NutritionSummary food={selectedFood} onRefreshGraph={handleRefreshGraph} />
+              <NutritionSummary food={selectedFood} />
             </div>
           </div>
           <div className="right-section">
