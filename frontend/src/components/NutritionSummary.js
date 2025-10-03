@@ -14,9 +14,6 @@ const NutritionSummary = ({ food }) => {
           <p>Carbohydrates: {food.nutrition?.carbs || 0}g</p>
           <p>Fat: {food.nutrition?.fat || 0}g</p>
         </div>
-        <div className="auto-added-note">
-          <p>✅ Added to nutrition chart automatically!</p>
-        </div>
       </div>
     </div>
   );
