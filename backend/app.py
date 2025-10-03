@@ -53,179 +53,388 @@ daily_food_log = []
 
 # Indian foods database for fallback when Spoonacular API doesn't have results
 INDIAN_FOODS_DB = {
+    # South Indian Breakfast & Snacks
     'dosa': {
         'id': 'indian_dosa_001',
         'title': 'Plain Dosa',
-        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300',
+        'image': 'https://images.unsplash.com/photo-1630409351151-b80b322c3d43?w=300&q=80',
         'nutrition': {'calories': 168, 'protein': 4, 'fat': 3, 'carbs': 32}
     },
     'masala dosa': {
         'id': 'indian_masala_dosa_001',
         'title': 'Masala Dosa',
-        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300',
+        'image': 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=300&q=80',
         'nutrition': {'calories': 285, 'protein': 6, 'fat': 8, 'carbs': 48}
+    },
+    'rava dosa': {
+        'id': 'indian_rava_dosa_001',
+        'title': 'Rava Dosa',
+        'image': 'https://images.unsplash.com/photo-1630409351151-b80b322c3d43?w=300&q=80',
+        'nutrition': {'calories': 195, 'protein': 5, 'fat': 4, 'carbs': 36}
     },
     'idli': {
         'id': 'indian_idli_001',
         'title': 'Idli (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300',
+        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
         'nutrition': {'calories': 78, 'protein': 3, 'fat': 1, 'carbs': 16}
-    },
-    'samosa': {
-        'id': 'indian_samosa_001',
-        'title': 'Vegetable Samosa',
-        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300',
-        'nutrition': {'calories': 262, 'protein': 4, 'fat': 17, 'carbs': 24}
-    },
-    'kachori': {
-        'id': 'indian_kachori_001',
-        'title': 'Dal Kachori',
-        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300',
-        'nutrition': {'calories': 186, 'protein': 5, 'fat': 8, 'carbs': 25}
-    },
-    'jalebi': {
-        'id': 'indian_jalebi_001',
-        'title': 'Jalebi',
-        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
-        'nutrition': {'calories': 150, 'protein': 1, 'fat': 4, 'carbs': 28}
-    },
-    'imarti': {
-        'id': 'indian_imarti_001',
-        'title': 'Imarti',
-        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
-        'nutrition': {'calories': 165, 'protein': 2, 'fat': 5, 'carbs': 30}
-    },
-    'lassi': {
-        'id': 'indian_lassi_001',
-        'title': 'Sweet Lassi',
-        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
-        'nutrition': {'calories': 180, 'protein': 6, 'fat': 4, 'carbs': 32}
-    },
-    'puri': {
-        'id': 'indian_puri_001',
-        'title': 'Puri (4 pieces)',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
-        'nutrition': {'calories': 340, 'protein': 8, 'fat': 14, 'carbs': 48}
-    },
-    'bhel puri': {
-        'id': 'indian_bhel_puri_001',
-        'title': 'Bhel Puri',
-        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300',
-        'nutrition': {'calories': 220, 'protein': 6, 'fat': 8, 'carbs': 32}
-    },
-    'pav bhaji': {
-        'id': 'indian_pav_bhaji_001',
-        'title': 'Pav Bhaji',
-        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300',
-        'nutrition': {'calories': 400, 'protein': 12, 'fat': 18, 'carbs': 52}
-    },
-    'vada pav': {
-        'id': 'indian_vada_pav_001',
-        'title': 'Vada Pav',
-        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300',
-        'nutrition': {'calories': 290, 'protein': 7, 'fat': 12, 'carbs': 40}
-    },
-    'dhokla': {
-        'id': 'indian_dhokla_001',
-        'title': 'Dhokla (4 pieces)',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
-        'nutrition': {'calories': 160, 'protein': 6, 'fat': 3, 'carbs': 28}
     },
     'uttapam': {
         'id': 'indian_uttapam_001',
         'title': 'Vegetable Uttapam',
-        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300',
+        'image': 'https://images.unsplash.com/photo-1630409351121-19762d6e3c5d?w=300&q=80',
         'nutrition': {'calories': 195, 'protein': 5, 'fat': 4, 'carbs': 35}
     },
     'medu vada': {
         'id': 'indian_medu_vada_001',
         'title': 'Medu Vada (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300',
+        'image': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&q=80',
         'nutrition': {'calories': 185, 'protein': 6, 'fat': 8, 'carbs': 24}
     },
+    'rava idli': {
+        'id': 'indian_rava_idli_001',
+        'title': 'Rava Idli (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=300&q=80',
+        'nutrition': {'calories': 95, 'protein': 3, 'fat': 2, 'carbs': 18}
+    },
+    'appam': {
+        'id': 'indian_appam_001',
+        'title': 'Appam (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1630409351151-b80b322c3d43?w=300&q=80',
+        'nutrition': {'calories': 120, 'protein': 2, 'fat': 1, 'carbs': 26}
+    },
+    
+    # North Indian Street Food & Snacks
+    'samosa': {
+        'id': 'indian_samosa_001',
+        'title': 'Vegetable Samosa',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'nutrition': {'calories': 262, 'protein': 4, 'fat': 17, 'carbs': 24}
+    },
+    'kachori': {
+        'id': 'indian_kachori_001',
+        'title': 'Dal Kachori',
+        'image': 'https://images.unsplash.com/photo-1666286332363-5caa95e25b60?w=300&q=80',
+        'nutrition': {'calories': 186, 'protein': 5, 'fat': 8, 'carbs': 25}
+    },
+    'aloo tikki': {
+        'id': 'indian_aloo_tikki_001',
+        'title': 'Aloo Tikki',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'nutrition': {'calories': 165, 'protein': 3, 'fat': 7, 'carbs': 24}
+    },
+    'bhel puri': {
+        'id': 'indian_bhel_puri_001',
+        'title': 'Bhel Puri',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'nutrition': {'calories': 220, 'protein': 6, 'fat': 8, 'carbs': 32}
+    },
+    'sev puri': {
+        'id': 'indian_sev_puri_001',
+        'title': 'Sev Puri',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'nutrition': {'calories': 180, 'protein': 4, 'fat': 8, 'carbs': 24}
+    },
+    'pani puri': {
+        'id': 'indian_pani_puri_001',
+        'title': 'Pani Puri (6 pieces)',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'nutrition': {'calories': 120, 'protein': 3, 'fat': 2, 'carbs': 24}
+    },
+    'dahi puri': {
+        'id': 'indian_dahi_puri_001',
+        'title': 'Dahi Puri',
+        'image': 'https://images.unsplash.com/photo-1601050690117-94f5f6fa7fa8?w=300&q=80',
+        'nutrition': {'calories': 150, 'protein': 4, 'fat': 5, 'carbs': 23}
+    },
+    'pav bhaji': {
+        'id': 'indian_pav_bhaji_001',
+        'title': 'Pav Bhaji',
+        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300&q=80',
+        'nutrition': {'calories': 400, 'protein': 12, 'fat': 18, 'carbs': 52}
+    },
+    'vada pav': {
+        'id': 'indian_vada_pav_001',
+        'title': 'Vada Pav',
+        'image': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=300&q=80',
+        'nutrition': {'calories': 290, 'protein': 7, 'fat': 12, 'carbs': 40}
+    },
+    'misal pav': {
+        'id': 'indian_misal_pav_001',
+        'title': 'Misal Pav',
+        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300&q=80',
+        'nutrition': {'calories': 320, 'protein': 12, 'fat': 14, 'carbs': 42}
+    },
+    
+    # Gujarati & Western Indian
+    'dhokla': {
+        'id': 'indian_dhokla_001',
+        'title': 'Dhokla (4 pieces)',
+        'image': 'https://images.unsplash.com/photo-1626132647346-f09797e2bdaa?w=300&q=80',
+        'nutrition': {'calories': 160, 'protein': 6, 'fat': 3, 'carbs': 28}
+    },
+    'khandvi': {
+        'id': 'indian_khandvi_001',
+        'title': 'Khandvi',
+        'image': 'https://images.unsplash.com/photo-1626132647346-f09797e2bdaa?w=300&q=80',
+        'nutrition': {'calories': 140, 'protein': 5, 'fat': 4, 'carbs': 22}
+    },
+    'thepla': {
+        'id': 'indian_thepla_001',
+        'title': 'Thepla (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300&q=80',
+        'nutrition': {'calories': 180, 'protein': 5, 'fat': 6, 'carbs': 28}
+    },
+    'fafda': {
+        'id': 'indian_fafda_001',
+        'title': 'Fafda with Jalebi',
+        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300&q=80',
+        'nutrition': {'calories': 280, 'protein': 6, 'fat': 12, 'carbs': 38}
+    },
+    
+    # Breakfast Items
     'poha': {
         'id': 'indian_poha_001',
         'title': 'Poha',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'image': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&q=80',
         'nutrition': {'calories': 180, 'protein': 4, 'fat': 6, 'carbs': 28}
     },
     'upma': {
         'id': 'indian_upma_001',
         'title': 'Upma',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'image': 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=300&q=80',
         'nutrition': {'calories': 200, 'protein': 5, 'fat': 7, 'carbs': 30}
     },
-    'paratha': {
-        'id': 'indian_paratha_001',
+    'aloo paratha': {
+        'id': 'indian_aloo_paratha_001',
         'title': 'Aloo Paratha',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300&q=80',
         'nutrition': {'calories': 320, 'protein': 8, 'fat': 12, 'carbs': 46}
     },
-    'chole bhature': {
-        'id': 'indian_chole_bhature_001',
-        'title': 'Chole Bhature',
-        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300',
-        'nutrition': {'calories': 485, 'protein': 16, 'fat': 22, 'carbs': 58}
+    'gobi paratha': {
+        'id': 'indian_gobi_paratha_001',
+        'title': 'Gobi Paratha',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300&q=80',
+        'nutrition': {'calories': 295, 'protein': 7, 'fat': 11, 'carbs': 42}
+    },
+    'paneer paratha': {
+        'id': 'indian_paneer_paratha_001',
+        'title': 'Paneer Paratha',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300&q=80',
+        'nutrition': {'calories': 350, 'protein': 12, 'fat': 15, 'carbs': 44}
+    },
+    'methi paratha': {
+        'id': 'indian_methi_paratha_001',
+        'title': 'Methi Paratha',
+        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300&q=80',
+        'nutrition': {'calories': 280, 'protein': 8, 'fat': 10, 'carbs': 40}
+    },
+    
+    # Main Courses & Rice Dishes
+    'biryani': {
+        'id': 'indian_biryani_001',
+        'title': 'Vegetable Biryani',
+        'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300&q=80',
+        'nutrition': {'calories': 420, 'protein': 12, 'fat': 15, 'carbs': 62}
+    },
+    'chicken biryani': {
+        'id': 'indian_chicken_biryani_001',
+        'title': 'Chicken Biryani',
+        'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300&q=80',
+        'nutrition': {'calories': 485, 'protein': 22, 'fat': 18, 'carbs': 58}
+    },
+    'pulao': {
+        'id': 'indian_pulao_001',
+        'title': 'Vegetable Pulao',
+        'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300&q=80',
+        'nutrition': {'calories': 320, 'protein': 8, 'fat': 10, 'carbs': 52}
+    },
+    'jeera rice': {
+        'id': 'indian_jeera_rice_001',
+        'title': 'Jeera Rice',
+        'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300&q=80',
+        'nutrition': {'calories': 280, 'protein': 6, 'fat': 8, 'carbs': 48}
+    },
+    
+    # Dal & Curry Dishes
+    'dal rice': {
+        'id': 'indian_dal_rice_001',
+        'title': 'Dal Rice',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
+        'nutrition': {'calories': 290, 'protein': 12, 'fat': 4, 'carbs': 52}
     },
     'rajma': {
         'id': 'indian_rajma_001',
         'title': 'Rajma Rice',
-        'image': 'https://images.unsplash.com/photo-1606471679504-b6894fe3ad38?w=300',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
         'nutrition': {'calories': 350, 'protein': 14, 'fat': 8, 'carbs': 58}
     },
-    'dal rice': {
-        'id': 'indian_dal_rice_001',
-        'title': 'Dal Rice',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
-        'nutrition': {'calories': 290, 'protein': 12, 'fat': 4, 'carbs': 52}
+    'chole bhature': {
+        'id': 'indian_chole_bhature_001',
+        'title': 'Chole Bhature',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
+        'nutrition': {'calories': 485, 'protein': 16, 'fat': 22, 'carbs': 58}
     },
-    'biryani': {
-        'id': 'indian_biryani_001',
-        'title': 'Vegetable Biryani',
-        'image': 'https://images.unsplash.com/photo-1563379091339-03246963d61a?w=300',
-        'nutrition': {'calories': 420, 'protein': 12, 'fat': 15, 'carbs': 62}
+    'dal makhani': {
+        'id': 'indian_dal_makhani_001',
+        'title': 'Dal Makhani',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
+        'nutrition': {'calories': 280, 'protein': 12, 'fat': 12, 'carbs': 32}
     },
+    'paneer butter masala': {
+        'id': 'indian_paneer_butter_masala_001',
+        'title': 'Paneer Butter Masala',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
+        'nutrition': {'calories': 320, 'protein': 15, 'fat': 18, 'carbs': 25}
+    },
+    'palak paneer': {
+        'id': 'indian_palak_paneer_001',
+        'title': 'Palak Paneer',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
+        'nutrition': {'calories': 285, 'protein': 14, 'fat': 16, 'carbs': 22}
+    },
+    'kadhi pakora': {
+        'id': 'indian_kadhi_pakora_001',
+        'title': 'Kadhi Pakora',
+        'image': 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=300&q=80',
+        'nutrition': {'calories': 250, 'protein': 8, 'fat': 12, 'carbs': 28}
+    },
+    
+    # Bread Items
     'roti': {
         'id': 'indian_roti_001',
         'title': 'Roti (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'image': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300&q=80',
         'nutrition': {'calories': 140, 'protein': 4, 'fat': 1, 'carbs': 28}
     },
     'naan': {
         'id': 'indian_naan_001',
         'title': 'Plain Naan',
-        'image': 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=300',
+        'image': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300&q=80',
         'nutrition': {'calories': 285, 'protein': 8, 'fat': 9, 'carbs': 42}
+    },
+    'butter naan': {
+        'id': 'indian_butter_naan_001',
+        'title': 'Butter Naan',
+        'image': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300&q=80',
+        'nutrition': {'calories': 320, 'protein': 8, 'fat': 12, 'carbs': 42}
+    },
+    'garlic naan': {
+        'id': 'indian_garlic_naan_001',
+        'title': 'Garlic Naan',
+        'image': 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=300&q=80',
+        'nutrition': {'calories': 295, 'protein': 8, 'fat': 10, 'carbs': 42}
+    },
+    'puri': {
+        'id': 'indian_puri_001',
+        'title': 'Puri (4 pieces)',
+        'image': 'https://images.unsplash.com/photo-1599938870781-b5c6f8c5a3bb?w=300&q=80',
+        'nutrition': {'calories': 340, 'protein': 8, 'fat': 14, 'carbs': 48}
+    },
+    'bhatura': {
+        'id': 'indian_bhatura_001',
+        'title': 'Bhatura (1 piece)',
+        'image': 'https://images.unsplash.com/photo-1599938870781-b5c6f8c5a3bb?w=300&q=80',
+        'nutrition': {'calories': 280, 'protein': 6, 'fat': 12, 'carbs': 38}
+    },
+    
+    # Sweets & Desserts
+    'jalebi': {
+        'id': 'indian_jalebi_001',
+        'title': 'Jalebi',
+        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300&q=80',
+        'nutrition': {'calories': 150, 'protein': 1, 'fat': 4, 'carbs': 28}
+    },
+    'imarti': {
+        'id': 'indian_imarti_001',
+        'title': 'Imarti',
+        'image': 'https://images.unsplash.com/photo-1678031487094-8b4fb3b1c0a0?w=300&q=80',
+        'nutrition': {'calories': 165, 'protein': 2, 'fat': 5, 'carbs': 30}
     },
     'gulab jamun': {
         'id': 'indian_gulab_jamun_001',
         'title': 'Gulab Jamun (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
+        'image': 'https://images.unsplash.com/photo-1594736797933-d0901ba2fe65?w=300&q=80',
         'nutrition': {'calories': 195, 'protein': 3, 'fat': 8, 'carbs': 30}
     },
     'rasgulla': {
         'id': 'indian_rasgulla_001',
         'title': 'Rasgulla (2 pieces)',
-        'image': 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=300',
+        'image': 'https://images.unsplash.com/photo-1594736797963-d0901ba2fe65?w=300&q=80',
         'nutrition': {'calories': 106, 'protein': 4, 'fat': 1, 'carbs': 22}
+    },
+    'rasmalai': {
+        'id': 'indian_rasmalai_001',
+        'title': 'Rasmalai (2 pieces)',
+        'image': 'https://images.unsplash.com/photo-1594736797963-d0901ba2fe65?w=300&q=80',
+        'nutrition': {'calories': 180, 'protein': 6, 'fat': 8, 'carbs': 22}
+    },
+    'kheer': {
+        'id': 'indian_kheer_001',
+        'title': 'Rice Kheer',
+        'image': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&q=80',
+        'nutrition': {'calories': 165, 'protein': 4, 'fat': 5, 'carbs': 26}
     },
     'kulfi': {
         'id': 'indian_kulfi_001',
         'title': 'Kulfi',
-        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'image': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&q=80',
         'nutrition': {'calories': 155, 'protein': 4, 'fat': 6, 'carbs': 22}
+    },
+    'halwa': {
+        'id': 'indian_halwa_001',
+        'title': 'Carrot Halwa',
+        'image': 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&q=80',
+        'nutrition': {'calories': 210, 'protein': 4, 'fat': 8, 'carbs': 32}
+    },
+    'laddu': {
+        'id': 'indian_laddu_001',
+        'title': 'Besan Laddu',
+        'image': 'https://images.unsplash.com/photo-1594736797933-d0901ba2fe65?w=300&q=80',
+        'nutrition': {'calories': 185, 'protein': 4, 'fat': 7, 'carbs': 28}
+    },
+    'barfi': {
+        'id': 'indian_barfi_001',
+        'title': 'Kaju Barfi',
+        'image': 'https://images.unsplash.com/photo-1594736797933-d0901ba2fe65?w=300&q=80',
+        'nutrition': {'calories': 165, 'protein': 3, 'fat': 8, 'carbs': 20}
+    },
+    
+    # Beverages
+    'lassi': {
+        'id': 'indian_lassi_001',
+        'title': 'Sweet Lassi',
+        'image': 'https://images.unsplash.com/photo-1595473896097-24b58ddfdc6b?w=300&q=80',
+        'nutrition': {'calories': 180, 'protein': 6, 'fat': 4, 'carbs': 32}
+    },
+    'mango lassi': {
+        'id': 'indian_mango_lassi_001',
+        'title': 'Mango Lassi',
+        'image': 'https://images.unsplash.com/photo-1595473896097-24b58ddfdc6b?w=300&q=80',
+        'nutrition': {'calories': 220, 'protein': 6, 'fat': 4, 'carbs': 42}
     },
     'chai': {
         'id': 'indian_chai_001',
         'title': 'Masala Chai',
-        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'image': 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=300&q=80',
         'nutrition': {'calories': 80, 'protein': 3, 'fat': 3, 'carbs': 12}
     },
     'filter coffee': {
         'id': 'indian_filter_coffee_001',
         'title': 'South Indian Filter Coffee',
-        'image': 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300',
+        'image': 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&q=80',
         'nutrition': {'calories': 75, 'protein': 3, 'fat': 3, 'carbs': 10}
+    },
+    'nimbu pani': {
+        'id': 'indian_nimbu_pani_001',
+        'title': 'Nimbu Pani (Lemonade)',
+        'image': 'https://images.unsplash.com/photo-1595473896097-24b58ddfdc6b?w=300&q=80',
+        'nutrition': {'calories': 60, 'protein': 0, 'fat': 0, 'carbs': 15}
+    },
+    'sugarcane juice': {
+        'id': 'indian_sugarcane_juice_001',
+        'title': 'Fresh Sugarcane Juice',
+        'image': 'https://images.unsplash.com/photo-1595473896097-24b58ddfdc6b?w=300&q=80',
+        'nutrition': {'calories': 180, 'protein': 0, 'fat': 0, 'carbs': 45}
     }
 }
 
