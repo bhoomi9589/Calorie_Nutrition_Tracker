@@ -26,15 +26,29 @@ function App() {
       const response = await axios.get(`/api/nutrition?id=${food.id}`);
       const foodWithNutrition = { ...food, nutrition: response.data.nutrition };
       setSelectedFood(foodWithNutrition);
-      
-      // Automatically add to chart when food is selected
-      setDailyLog(prevLog => [...prevLog, foodWithNutrition]);
-      
-      // Also log to backend
-      await axios.post('/api/log-food', foodWithNutrition);
+      // Do not add to chart automatically
     } catch (error) {
       console.error('Error getting nutrition info:', error);
     }
+  };
+
+  // Handler for Plot Graph button
+  const handlePlotGraph = async () => {
+    if (selectedFood) {
+      setDailyLog(prevLog => [...prevLog, selectedFood]);
+      // Optionally log to backend
+      try {
+        await axios.post('/api/log-food', selectedFood);
+      } catch (error) {
+        console.error('Error logging food:', error);
+      }
+    }
+  };
+
+  // Handler for Clear Log button
+  const handleClearLog = () => {
+    setDailyLog([]);
+    setSelectedFood(null);
   };
 
   return (
@@ -59,7 +73,8 @@ function App() {
               <ResultsList results={searchResults} onSelectFood={handleSelectFood} />
             </div>
             <div className="nutrition-section">
-              <NutritionSummary food={selectedFood} />
+              <NutritionSummary food={selectedFood} onPlotGraph={handlePlotGraph} />
+              <button onClick={handleClearLog} className="clear-log-btn" style={{marginTop: '15px'}}>Clear Log</button>
             </div>
           </div>
           <div className="right-section">

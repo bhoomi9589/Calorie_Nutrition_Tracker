@@ -1,6 +1,7 @@
 import React from 'react';
 
-const NutritionSummary = ({ food }) => {
+
+const NutritionSummary = ({ food, onPlotGraph }) => {
   if (!food) return null;
 
   return (
@@ -14,6 +15,7 @@ const NutritionSummary = ({ food }) => {
           <p>Carbohydrates: {food.nutrition?.carbs || 0}g</p>
           <p>Fat: {food.nutrition?.fat || 0}g</p>
         </div>
+        <button onClick={onPlotGraph} className="plot-graph-btn" style={{marginTop: '10px'}}>Plot Graph</button>
       </div>
     </div>
   );
